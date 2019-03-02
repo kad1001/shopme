@@ -1,0 +1,24 @@
+{
+  "name": "shopme",
+  "version": "1.0.0",
+  "description": "An Amazon-like storefront using MySQL and Node.js",
+  "main": "bamazonCustomer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kad1001/shopme.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kad1001/shopme/issues"
+  },
+  "homepage": "https://github.com/kad1001/shopme#readme",
+  "dependencies": {
+    "inquirer": "^6.2.2",
+    "mysql": "^2.16.0"
+  }
+}
