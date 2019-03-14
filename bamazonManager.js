@@ -1,6 +1,6 @@
 var mysql = require("mysql");
 var inquirer = require("inquirer");
-
+var Table = require('cli-table');
 
 var connection = mysql.createConnection({
     host: "localhost",
@@ -16,14 +16,13 @@ connection.connect(function (err) {
     runSearch();
 });
 
-
 // main menu
 function runSearch() {
     inquirer
         .prompt({
             name: "action",
             type: "list",
-            message: "What would you like to do?",
+            message: "What would you like to do, boss?",
             choices: [
                 "Search Inventory",
                 "View All Products",
@@ -56,19 +55,39 @@ function runSearch() {
                     break;
 
                 case "exit":
+                    console.log("See ya later, boss.");
                     connection.end();
+                    process.exit()
                     break;
             }
         });
+}
+
+
+function showTable(c) {
+    var table = new Table({
+        head: ['ID', 'Product Name', 'Department', 'Price', 'Quantity']
+    })
+    c.forEach(i => {
+        table.push([
+            i.id,
+            i.product_name,
+            i.dept_name,
+            i.price,
+            i.stock
+        ])
+
+    });
+    console.log(table.toString());
 }
 
 // displays all products in table
 function selectProducts() {
     var query = "SELECT * FROM products;"
     connection.query(query, function (err, res) {
-        console.log(res);
-
-        runSearch();
+        if (err) throw err;
+        showTable(res);
+        // runSearch();
     });
 }
 
@@ -78,19 +97,23 @@ function productSearch() {
         .prompt({
             name: "product",
             type: "input",
-            message: "What product would you like to search for?"
+            message: "What is the name of the product you're looking for?"
         })
         .then(function (answer) {
+
+            // searches 
             var query = "SELECT * FROM products WHERE ?";
             connection.query(query, {
+
+                // result from inquirer is sent to query sql
                 product_name: answer.product
             }, function (err, res) {
-                // if product is in the database
-                for (var i = 0; i < res.length; i++) {
-                    console.log("Found " + res[i].product_name + "!");
-                    console.log("Department: " + res[i].dept_name + " || Price: $" + res[i].price + " || Quantity: " + res[i].stock + " || Item ID: " + res[i].id);
-                }
-                runSearch();
+                if (err) throw err;
+
+                console.log(res)
+                console.log("Here's what I found:");
+                showTable(res);
+
             });
         });
 }
@@ -99,10 +122,9 @@ function productSearch() {
 function lowSearch() {
     var query = "SELECT * FROM products WHERE stock < 5";
     connection.query(query, function (err, res) {
-        console.log(res);
-        // connection.end();
-        // options
-        runSearch();
+
+        showTable(res);
+        // runSearch();
     });
 }
 
@@ -139,11 +161,9 @@ function addInventory() {
                     if (err) throw err;
 
                     console.log("Successfully updated stock for item with ID " + selected + ". Current stock: " + (thisData.stock + quan));
-                    // connection.end();
 
-                    // present options
-                    runSearch();
                 })
+
             })
         })
 }
@@ -181,15 +201,12 @@ function newProduct() {
             // mysql update
             var query = 'INSERT INTO products SET ?';
 
-            connection.query(query, input, function (error, results, fields) {
-                if (error) throw error;
+            connection.query(query, input, function (err, res) {
+                if (err) throw err;
 
                 console.log("Success!");
                 console.log("Added " + stock + " " + name + "(s) to the " + dept + " department at $" + price + ".");
 
-                // connection.end();
-                // show options again
-                runSearch();
             })
         })
 }

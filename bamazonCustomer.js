@@ -54,20 +54,18 @@ function runSearch() {
 
                     connection.query(updated, function (err, res) {
                         if (err) throw err;
-
                         // tell the price of the selected item
-                        console.log("Your total is $" + thisData.price * quantity);
-
-
+                        console.log("Your cart total is $" + thisData.price * quantity);
+                        process.exit()
                     })
                 }
 
                 // if there is not enough in stock
-
                 else {
-                    console.log("Sorry, there is not enough of this product in stock. Try again with a lower number.");
+                    console.log("Sorry, there is not enough of this product in stock.");
+                    process.exit()
                 }
-
+   
             })
         })
 }
