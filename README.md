@@ -7,5 +7,4 @@ A command line interface for an example store.
 <li>Node.js</li>
 <li>MySql</li>
 
-<img src="./assets/1">
-<!-- <a href="> -->
+<img src="./assets/1.jpg">
