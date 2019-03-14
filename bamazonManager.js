@@ -110,7 +110,7 @@ function productSearch() {
             }, function (err, res) {
                 if (err) throw err;
 
-                console.log(res)
+                // console.log(res)
                 console.log("Here's what I found:");
                 showTable(res);
 
