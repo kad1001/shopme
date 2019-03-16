@@ -10,10 +10,12 @@ A command line interface for an example store.
 <a href="https://www.npmjs.com/package/cli-table">CLI Table</a>
 </li>
 
-<h2>Set up</h2>
-<p>Customer View:</p>
+<!-- <h2>Set up</h2> -->
+# Installation
+Use the backage manager [npm](https://www.npmjs.com/) to install npm package.
+
 ```bash
-node bamazoncustomer
+npm install
 ```
 
 
