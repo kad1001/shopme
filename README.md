@@ -32,9 +32,11 @@ node bamazonManager
 ```
 
 You will be given a list of choices:
+<br>
 <img src="./assets/choose.png">
 
 If you select "View All Products", the database of products is presented:
+<br>
 <img src="./assets/all.png">
 
 
@@ -45,6 +47,7 @@ node bamazonCustomer
 ```
 
 You will be prompted to enter an ID for a product, and you can add it to your cart and update the stock of the product in the database.
+<br>
 <img src="./assets/customer.png">
 
 For a complete rundown of features, you can watch the <a href="https://drive.google.com/file/d/1vtzz0sLvWJTWN_lcDupdETV2XmtVin3G/view?usp=sharing">demo</a>.
