@@ -5,6 +5,19 @@ A command line interface for an example store.
 <ul>
 <li>Javascript</li>
 <li>Node.js</li>
-<li>MySql</li>
+<li>MySQL</li>
+<li> 
+<a href="https://www.npmjs.com/package/cli-table">CLI Table</a>
+</li>
 
+<h2>Set up</h2>
+<p>Customer View:</p>
+```bash
+node bamazoncustomer
+```
+
+
+<!-- how to use -->
+<h2>Features</h2>
+<img src="./assets/choose.png">
 <img src="./assets/1.jpg">
