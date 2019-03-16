@@ -5,7 +5,8 @@ A command line interface for an example store.
 <ul>
 <li>Javascript</li>
 <li>Node.js</li>
-<li>MySQL</li>
+<li>
+<a href="https://www.npmjs.com/package/mysql">MySQL</a></li>
 <li> <a href="https://www.npmjs.com/package/cli-table">CLI Table</a>
 </li>
 <li>
