@@ -12,7 +12,7 @@ A command line interface for an example store.
 
 <h2>Set up</h2>
 <p>Customer View:</p>
-```bash
+```
 node bamazoncustomer
 ```
 
