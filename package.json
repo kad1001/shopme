@@ -4,24 +4,18 @@
   "description": "An Amazon-like storefront using MySQL and Node.js",
   "main": "bamazonCustomer.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --recursive"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/kad1001/shopme.git"
-  },
-  "keywords": [],
-  "author": "",
+  "repository": "https://github.com/kad1001/shopme.git",
+  "author": "Kelly Davis <kellyadavis7@gmail.com>",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/kad1001/shopme/issues"
-  },
-  "homepage": "https://github.com/kad1001/shopme#readme",
   "dependencies": {
     "cli-table": "^0.3.1",
-    "inquirer": "^6.2.2",
-    "mysql": "^2.16.0"
+    "inquirer": "^7.0.0",
+    "mysql": "^2.17.1"
+  },
+  "devDependencies": {
+    "mocha": "^6.2.2",
+    "should": "^13.2.3"
   }
 }
-
-
